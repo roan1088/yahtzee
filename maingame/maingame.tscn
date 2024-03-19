@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0xi3rov61hr7"]
+
+[ext_resource type="Script" path="res://maingame/maingame.gd" id="1_ygmhb"]
+[ext_resource type="PackedScene" uid="uid://6xhnjn7juxpb" path="res://dice/dice.tscn" id="2_u73t3"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ygmhb")
+
+[node name="RollButton" type="Button" parent="."]
+offset_left = 90.0
+offset_top = 178.0
+offset_right = 243.0
+offset_bottom = 218.0
+text = "Roll
+"
+
+[node name="Dice0" parent="." groups=["dice_group"] instance=ExtResource("2_u73t3")]
+position = Vector2(64, 81)
+
+[node name="Dice1" parent="." groups=["dice_group"] instance=ExtResource("2_u73t3")]
+position = Vector2(112, 81)
+
+[node name="Dice2" parent="." groups=["dice_group"] instance=ExtResource("2_u73t3")]
+position = Vector2(160, 81)
+
+[node name="Dice3" parent="." groups=["dice_group"] instance=ExtResource("2_u73t3")]
+position = Vector2(208, 81)
+
+[node name="Dice4" parent="." groups=["dice_group"] instance=ExtResource("2_u73t3")]
+position = Vector2(256, 81)
+
+[connection signal="pressed" from="RollButton" to="." method="_on_roll_button_pressed"]

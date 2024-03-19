@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://6xhnjn7juxpb"]
+
+[ext_resource type="Script" path="res://dice/dice.gd" id="1_vaq6i"]
+[ext_resource type="SpriteFrames" uid="uid://c3ynbou02yauv" path="res://dice/dice.tres" id="2_0xfpt"]
+
+[node name="Dice" type="Node2D"]
+script = ExtResource("1_vaq6i")
+metadata/_edit_group_ = true
+
+[node name="DiceFrames" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_0xfpt")
+
+[node name="DiceButton" type="Button" parent="."]
+visibility_layer = 0
+custom_minimum_size = Vector2(32, 32)
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="LockedLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.5
+offset_top = 15.0
+offset_right = 25.5
+offset_bottom = 38.0
+grow_horizontal = 2
+size_flags_vertical = 1
+text = "locked"
+
+[connection signal="pressed" from="DiceButton" to="." method="_on_dice_button_pressed"]
